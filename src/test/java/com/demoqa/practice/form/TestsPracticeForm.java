@@ -44,7 +44,7 @@ public class TestsPracticeForm {
         $(byText("12")).click();
         $("#subjectsInput").setValue(subject).pressEnter();
         $(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("#uploadPicture").uploadFromClasspath("2.jpg");
         $("#currentAddress").setValue(currentAddressText);
         $(".css-1wa3eu0-placeholder").click();
         $(byText("NCR")).click();
