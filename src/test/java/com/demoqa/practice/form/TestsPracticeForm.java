@@ -18,7 +18,8 @@ public class TestsPracticeForm {
         Configuration.browserSize = "1920x1080";
     }
 
-    @Test void practiceFormTests () {
+    @Test
+    void practiceFormTests () {
 
         Selenide.open("automation-practice-form");
 
@@ -29,7 +30,7 @@ public class TestsPracticeForm {
         String month = "November";
         String year = "1983";
         String subject = "History";
-
+        String currentAddressText = "Hello world";
 
 
         $("#firstName").setValue(name);
@@ -43,12 +44,13 @@ public class TestsPracticeForm {
         $(byText("12")).click();
         $("#subjectsInput").setValue(subject).pressEnter();
         $(byText("Sports")).click();
-        $("uploadPicture").uploadFromClasspath("1.jpg");
+        $("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("#currentAddress").setValue(currentAddressText);
+        $(".css-1wa3eu0-placeholder").click();
+        $(byText("NCR")).click();
+        $(".css-1wa3eu0-placeholder").click();
+        $(byText("Delhi")).click();
+        $("#submit").click();
 
     }
-
-
-
-
-
 }
