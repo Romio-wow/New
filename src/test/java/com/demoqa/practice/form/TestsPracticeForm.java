@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -26,7 +27,7 @@ public class TestsPracticeForm {
         String name = "Rick";
         String surname = "Sanchez";
         String mail = "roman.mi@mail.ru";
-        String phoneNumber = "89164458585";
+        String phoneNumber = "8916445858";
         String month = "November";
         String year = "1983";
         String subject = "History";
@@ -44,7 +45,7 @@ public class TestsPracticeForm {
         $(byText("12")).click();
         $("#subjectsInput").setValue(subject).pressEnter();
         $(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("2.jpg");
+        $("#uploadPicture").uploadFromClasspath("1.jpg");
         $("#currentAddress").setValue(currentAddressText);
         $(".css-1wa3eu0-placeholder").click();
         $(byText("NCR")).click();
@@ -52,5 +53,11 @@ public class TestsPracticeForm {
         $(byText("Delhi")).click();
         $("#submit").click();
 
+        $(".table-responsive").shouldHave(text(name + " " + surname),
+                text(mail),text("Gender Male"),text(phoneNumber),
+                text(phoneNumber),text("Date of Birth" + " " + "12 November,1983"),
+                text(subject),text("Hobbies" + " " + "Sports"),
+                text("Picture" + " " + "1.jpg"),text(currentAddressText),
+                text("State and City" + " " + "NCR Delhi"));
     }
 }
